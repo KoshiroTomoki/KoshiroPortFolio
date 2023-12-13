@@ -1,0 +1,347 @@
+@use "doru";
+
+/* ------------------------------------------------ #sectionProfile */
+
+
+.sideScrollBox01 {
+    color: doru.$mainColor;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    transition: 0.5s;
+
+    .sideScrollContainer01 {
+        display: flex;
+        width: 500%;
+
+        #sectionProfile {
+            outline: 5px solid rgb(255, 255, 255, 80%);
+            outline-offset: -30px;
+            width: 100%;
+            height: 100vh;
+            margin: 2rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+
+            @media (width <=768px) {
+                flex-direction: column;
+                justify-content: normal;
+                font-size: 1rem;
+            }
+
+            .profileText {
+                width: 80%;
+                display: flex;
+
+                @media (width <=768px) {
+                    width: 100%;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    position: relative;
+                }
+
+
+                .profile01 {
+                    width: 71%;
+                    text-align: center;
+                    margin-top: 8rem;
+                    margin-bottom: 2rem;
+
+                    @media (width <=768px) {
+                        transform: translateY(0);
+                        margin-top: 2rem;
+                    }
+
+                    h2 {
+                        padding: 1.5rem;
+
+                        @media (width <=768px) {
+                            padding: 0;
+                        }
+                    }
+
+                    p {
+                        padding: 1.5rem;
+
+                        @media (width <=768px) {
+                            padding: 0;
+                        }
+                    }
+
+                    span {
+                        font-size: 0.8rem;
+                    }
+                }
+
+                .profile02 {
+                    margin: 12rem 5rem 0 0;
+                    width: 30%;
+
+                    @media (width <=768px) {
+                        width: 100%;
+                        margin: 0;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    img {
+                        outline: 5px solid rgb(255, 255, 255, 80%);
+                        outline-offset: 15px;
+                        width: 13rem;
+                        height: 18rem;
+
+                        @media (width <=768px) {
+                            width: 6rem;
+                            height: 8rem;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        /* ------------------------------------------------ #about */
+
+        #header {
+            .aboutTitle {
+                margin-top: 5rem;
+
+
+                @media (width <=768px) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 0;
+                    margin-left: 0rem;
+                }
+            }
+        }
+
+        .headerNone {
+            @media (width <=768px) {
+                display: none;
+            }
+        }
+
+        #aboutText {
+            outline: 5px solid rgb(255, 255, 255, 80%);
+            outline-offset: -30px;
+            width: 100%;
+            height: 100vh;
+            margin: 2rem auto 0;
+            position: relative;
+
+            .aboutBox {
+                display: flex;
+
+                @media (width <=768px) {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 5rem;
+                }
+
+                .aboutText {
+                    margin-top: 11rem;
+                    max-width: 600px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    font-size: 1.3rem;
+
+
+
+                    @media (width <=768px) {
+                        width: 80%;
+                        font-size: 1.2rem;
+                        margin-top: 0;
+                    }
+
+                    @media (width <=450px) {
+                        font-size: 1rem;
+                    }
+
+                    .aboutText01 {
+                        padding: 1rem;
+
+                        span {
+                            font-size: 1.7rem
+                        }
+
+                    }
+                }
+            }
+        }
+
+        #career {
+            outline: 5px solid rgb(255, 255, 255, 80%);
+            outline-offset: -30px;
+            width: 100%;
+            height: 100vh;
+            margin: 2rem auto 0;
+            position: relative;
+
+            .careerBox {
+                display: flex;
+
+                @media (width <=768px) {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 5rem;
+                }
+
+                .careerText {
+                    margin-top: 15rem;
+                    margin-left: 12rem;
+                    width: 80%;
+                    display: flex;
+                    justify-content: start;
+                    flex-direction: column;
+
+                    @media (width <=768px) {
+                        max-width: 300px;
+                        font-size: 1rem;
+                        margin-top: -1rem;
+                        margin-left: 2rem;
+                        padding: 0 2rem 0 0;
+                        justify-content: start;
+                    }
+
+                    @media (width <=450px) {
+                        font-size: 0.9rem;
+
+                    }
+                }
+            }
+        }
+
+        #hobby {
+            outline: 5px solid rgb(255, 255, 255, 80%);
+            outline-offset: -30px;
+            width: 100%;
+            height: 100vh;
+            margin: 2rem auto 0;
+            position: relative;
+
+            .hobbyBox {
+                display: flex;
+
+                @media (width <=768px) {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 5rem;
+                }
+
+                .hobbyText {
+                    margin-top: 15rem;
+                    margin-left: 10rem;
+
+                    width: 80%;
+                    display: flex;
+                    justify-content: start;
+                    flex-direction: column;
+
+                    @media (width <=768px) {
+                        max-width: 300px;
+                        font-size: 0.8rem;
+                        margin-top: 0;
+                        margin-left: 1rem;
+                    }
+                }
+            }
+        }
+
+        #skills {
+            outline: 5px solid rgb(255, 255, 255, 80%);
+            outline-offset: -30px;
+            width: 100%;
+            height: 100vh;
+            margin: 2rem auto 0;
+            position: relative;
+
+            .skillsBox {
+                display: flex;
+
+                @media (width <=768px) {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 5rem;
+                }
+
+                .skillsText {
+                    width: 60%;
+                    text-align: center;
+                    margin-top: 12rem;
+                    display: flex;
+                    flex-direction: column;
+
+                    @media (width <=768px) {
+                        transform: translateY(-12rem);
+                    }
+
+                    .skillsText01 {
+                        margin-bottom: 2rem;
+                    }
+
+                    .skills01,
+                    .skills02 {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        margin-bottom: 3rem;
+                    }
+
+                    .skills {
+                        display: flex;
+                        flex-direction: column;
+
+                        img {
+                            max-width: 100px;
+                            width: 100%;
+                            height: 100px;
+
+                            @media (width <=768px) {
+                                max-width: 50px;
+                                height: 50px;
+                            }
+
+                            @media (width <=400px) {
+                                max-width: 30px;
+                                height: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.aboutScroll {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    position: absolute;
+    top: 80%;
+    right: 3%;
+
+    @media (width <=768px) {
+        margin-right: 2rem;
+    }
+}
+
+.aboutScroll a:hover {
+    transition: 0.5s;
+    font-size: 1.2rem;
+}

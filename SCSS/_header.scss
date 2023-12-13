@@ -1,0 +1,90 @@
+@use "doru";
+
+#header {
+    margin: 2rem 0 0 3rem;
+    color: doru.$mainColor;
+    width: 20%;
+    z-index: 1000;
+    position: relative;
+
+
+
+    @media (width <=768px) {
+        margin: 2rem 0 0 2rem;
+    }
+
+    @media (width <=470px) {
+        margin: 5rem 0 0 0.5rem;
+    }
+
+
+    h1 {
+        font-size: 4rem;
+        margin-left: 2rem;
+
+
+        @media (width <=768px) {
+            font-size: 2rem;
+            margin-left: 2rem;
+        }
+
+    }
+
+    nav {
+        z-index: 1000;
+
+        .headerNav {
+            list-style-type: none;
+            transition: 0.5s;
+
+
+            @media (width <=768px) {
+                display: flex;
+                justify-content: space-between;
+            }
+
+
+            li {
+                padding: 0.5rem 0.25rem;
+
+                a {
+                    font-size: 2rem;
+                    color: doru.$mainColor;
+                    transition: 0.5s;
+
+                    font-size: 1.5rem;
+
+                    @media (width <=768px) {
+                        font-size: 1rem;
+                    }
+                }
+
+                a:hover {
+                    transition: 0.3s;
+                    font-size: 2.5rem;
+
+                    @media (width <=768px) {
+                        font-size: 1.2rem;
+                    }
+                }
+
+                .hiddenAboutNav,
+                .hiddenWorksNav {
+                    display: none;
+                }
+            }
+
+            li:nth-child(2):hover,
+            li:nth-child(3):hover {
+                transition: 0.5s;
+
+                .hiddenAboutNav,
+                .hiddenWorksNav {
+                    display: block;
+                    list-style-type: none;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,131 @@
+/* JS_drawer v1.1.0 ,2023 */
+/* create by syo motoyama*/
+/* support by studio99.99(https://studio9999.com/) and CRAFT STUDIO SORA(https://cssora.net/) */
+@charset "UTF-8";
+
+:root{
+    --drawerColor:rgb(255, 255, 255,0);/* ドロワーボタンとMENUの色。藍鉄色 */
+    --barColor:#ffffff;/* ドロワーボタンのアニメーションするバーの色。月白色 */
+    --menuColor: rgb(149, 0, 0);
+}
+
+.toggleButton {
+    display: none;
+    z-index: 1000;
+}
+
+#drawerMenu ul {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#drawerMenu li {
+    width: fit-content;
+    text-align: center;
+}
+
+#drawerMenu a {
+    display: block;
+    padding: 1rem;/* マウスが反応する範囲を少し広げている*/
+    opacity: 1;
+    transition: all .4s ease-in-out;
+}
+
+/* アンカーリンクにマウスが乗ると、他のアンカーリンクが少し薄くなる指定 */
+#drawerMenu ul:has(a:hover) a:not(:hover){
+    opacity: 0.3;
+}
+
+
+@media (width <=768px) {  /* メディアクエリの値はお好みで */
+
+    .toggleButton {
+        position: fixed;
+        top: 5%;
+        left: 5%;
+        width: 40px;
+        height: 40px;
+        display: block;/* display:none;を解除するために入れている */
+        background: var(--drawerColor);
+        border-radius: 5px;
+        z-index: 100;
+    }
+
+    .toggleButton span {
+        width: 60%;
+        height: 4px;
+        display: block;
+        position: absolute;
+        left: 20%;
+        background-color: var(--barColor);
+        border-radius: 5px;
+        transition: all 0.2s linear;
+    }
+
+    .toggleButton span:nth-of-type(1) {
+        top: 10px;
+        transform: rotate(0);
+    }
+
+    .toggleButton span:nth-of-type(2) {
+        top: 18px;
+        transform: scale(1);
+    }
+
+    .toggleButton span:nth-of-type(3) {
+        bottom: 6px;
+        transform: rotate(0);
+    }
+
+    .close span:nth-of-type(1) {
+        top: 16px;
+        transform: rotate(-45deg);
+    }
+
+    .close span:nth-of-type(2) {
+        transform: scale(0);
+    }
+
+    .close span:nth-of-type(3) {
+        bottom: 16px;
+        transform: rotate(45deg);
+    }
+
+    #drawerMenu {
+        position: fixed;
+        top: 0;
+        left: -240px;
+        transition: all 0.3s linear;
+    }
+
+    #drawerMenu.open {
+        left: 0;
+    }
+
+    #drawerMenu ul {
+        display: block;
+        width: 200px;
+        height: 100%;
+        padding: 80px 20px 20px 20px;
+        background-image: var(--menuColor);
+        overflow: hidden;
+        text-align: center;
+        list-style-type: none;
+        border-radius: 0 0 0 10px;
+    }
+
+    #drawerMenu li {
+        width: 100%;
+    }
+
+}/* width <= 800px */
+
+@media (width <=400px){
+    .toggleButton{
+        top: 12%;
+        left: 8%;
+    }
+}
