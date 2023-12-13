@@ -147,15 +147,12 @@
 
                 .aboutText {
                     margin-top: 11rem;
-                    max-width: 600px;
                     width: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
 
                     font-size: 1.3rem;
-
-
 
                     @media (width <=768px) {
                         width: 80%;
@@ -168,7 +165,7 @@
                     }
 
                     .aboutText01 {
-                        padding: 1rem;
+                        max-width: 600px;
 
                         span {
                             font-size: 1.7rem
@@ -251,9 +248,13 @@
 
                     @media (width <=768px) {
                         max-width: 300px;
-                        font-size: 0.8rem;
+                        font-size: 1rem;
                         margin-top: 0;
                         margin-left: 1rem;
+                    }
+
+                    @media (width <=768px) {
+                        font-size: 0.9rem;
                     }
                 }
             }

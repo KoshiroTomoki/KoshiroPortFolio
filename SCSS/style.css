@@ -727,7 +727,6 @@
 }
 .sideScrollBox01 .sideScrollContainer01 #aboutText .aboutBox .aboutText {
   margin-top: 11rem;
-  max-width: 600px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -747,7 +746,7 @@
   }
 }
 .sideScrollBox01 .sideScrollContainer01 #aboutText .aboutBox .aboutText .aboutText01 {
-  padding: 1rem;
+  max-width: 600px;
 }
 .sideScrollBox01 .sideScrollContainer01 #aboutText .aboutBox .aboutText .aboutText01 span {
   font-size: 1.7rem;
@@ -824,9 +823,14 @@
 @media (width <= 768px) {
   .sideScrollBox01 .sideScrollContainer01 #hobby .hobbyBox .hobbyText {
     max-width: 300px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: 0;
     margin-left: 1rem;
+  }
+}
+@media (width <= 768px) {
+  .sideScrollBox01 .sideScrollContainer01 #hobby .hobbyBox .hobbyText {
+    font-size: 0.9rem;
   }
 }
 .sideScrollBox01 .sideScrollContainer01 #skills {
@@ -1255,7 +1259,7 @@
 }
 @media (width <= 768px) {
   #sectionContact .googleForm form {
-    transform: translateY(-10rem);
+    transform: translateY(-5rem);
     justify-content: center;
     align-items: center;
     margin: 0;
