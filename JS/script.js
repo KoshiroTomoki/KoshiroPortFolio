@@ -1,9 +1,10 @@
 
 //始まったとたんにbodyにタグを付与する。（こうしないといけない）
 document.addEventListener("DOMContentLoaded", function () {
-    document.body.style.overflow = "hidden";
+    if (window.innerWidth > 450) {
+        document.body.style.overflow = "hidden";
+    }
 });
-
 
 
 //スクロールbuttonのクラス付け替え。Scrollのオンオフ

@@ -126,9 +126,9 @@
     margin: 2rem 0 0 2rem;
   }
 }
-@media (width <= 470px) {
+@media (width <= 400px) {
   #header {
-    margin: 5rem 0 0 0.5rem;
+    margin: 1rem 0 0 0.5rem;
   }
 }
 #header h1 {
@@ -192,6 +192,12 @@
   display: block;
   list-style-type: none;
   transition: 0.5s;
+}
+
+@media (width <= 470px) {
+  .homeHeader {
+    margin-top: 5rem;
+  }
 }
 
 /* ------------------------------------------------ #sectionTop */
@@ -878,6 +884,11 @@
   display: flex;
   flex-direction: column;
 }
+@media (width <= 768px) {
+  .sideScrollBox01 .sideScrollContainer01 #skills .skillsBox .skillsText .skills {
+    margin-top: 5rem;
+  }
+}
 .sideScrollBox01 .sideScrollContainer01 #skills .skillsBox .skillsText .skills img {
   max-width: 100px;
   width: 100%;
@@ -1204,6 +1215,9 @@
   max-width: 300px;
   width: 100%;
 }
+.sideScrollBox02 .sideScrollContainer02 #bunner .bunnerBox .bunnerText {
+  margin: 3rem;
+}
 
 .lum-lightbox .lum-img {
   max-width: 100%;
@@ -1259,7 +1273,7 @@
 }
 @media (width <= 768px) {
   #sectionContact .googleForm form {
-    transform: translateY(-5rem);
+    transform: translateY(-10rem);
     justify-content: center;
     align-items: center;
     margin: 0;
@@ -1348,6 +1362,11 @@ body #scrollonoffBox {
     padding: 0 0.5rem;
   }
 }
+@media (width <= 450px) {
+  body #scrollonoffBox {
+    display: none;
+  }
+}
 body #scrollonoffBox:hover {
   box-shadow: 1px 1px 2px rgb(0, 0, 0);
   transition: 0.5s;
@@ -1373,6 +1392,11 @@ body #changeBackground {
     padding: 0.9rem 0.5rem;
   }
 }
+@media (width <= 450px) {
+  body #changeBackground {
+    right: 3rem;
+  }
+}
 body #changeBackground:hover {
   box-shadow: 1px 1px 2px rgb(0, 0, 0);
   transition: 0.5s;
@@ -1396,6 +1420,11 @@ body #revivalButton {
     font-size: 0.8rem;
     right: 15.5rem;
     padding: 0.9rem 0.5rem;
+  }
+}
+@media (width <= 450px) {
+  body #revivalButton {
+    right: 10rem;
   }
 }
 body #revivalButton:hover {

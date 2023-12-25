@@ -11,10 +11,9 @@
         margin: 2rem 0 0 2rem;
     }
 
-    @media (width <=470px) {
-        margin: 5rem 0 0 0.5rem;
+    @media (width <=400px) {
+        margin: 1rem 0 0 0.5rem;
     }
-
 
     h1 {
         font-size: 4rem;
@@ -25,6 +24,7 @@
             font-size: 2rem;
             margin-left: 2rem;
         }
+
 
     }
 
@@ -84,5 +84,12 @@
                 }
             }
         }
+    }
+}
+
+.homeHeader {
+
+    @media (width <=470px) {
+        margin-top: 5rem;
     }
 }
