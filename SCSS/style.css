@@ -1273,7 +1273,7 @@
 }
 @media (width <= 768px) {
   #sectionContact .googleForm form {
-    transform: translateY(-10rem);
+    transform: translateY(-5rem);
     justify-content: center;
     align-items: center;
     margin: 0;
