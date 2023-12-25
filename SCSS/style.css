@@ -614,7 +614,7 @@
   outline-offset: -30px;
   width: 100%;
   height: 100vh;
-  margin: 2rem auto 0;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -695,9 +695,6 @@
     height: 8rem;
   }
 }
-.sideScrollBox01 .sideScrollContainer01 #header .aboutTitle {
-  margin-top: 5rem;
-}
 @media (width <= 768px) {
   .sideScrollBox01 .sideScrollContainer01 #header .aboutTitle {
     display: flex;
@@ -717,7 +714,7 @@
   outline-offset: -30px;
   width: 100%;
   height: 100vh;
-  margin: 2rem auto 0;
+  margin: 0 auto;
   position: relative;
 }
 .sideScrollBox01 .sideScrollContainer01 #aboutText .aboutBox {
@@ -762,7 +759,7 @@
   outline-offset: -30px;
   width: 100%;
   height: 100vh;
-  margin: 2rem auto 0;
+  margin: 0 auto;
   position: relative;
 }
 .sideScrollBox01 .sideScrollContainer01 #career .careerBox {
@@ -804,7 +801,7 @@
   outline-offset: -30px;
   width: 100%;
   height: 100vh;
-  margin: 2rem auto 0;
+  margin: 0 auto;
   position: relative;
 }
 .sideScrollBox01 .sideScrollContainer01 #hobby .hobbyBox {
@@ -844,7 +841,7 @@
   outline-offset: -30px;
   width: 100%;
   height: 100vh;
-  margin: 2rem auto 0;
+  margin: 0 auto;
   position: relative;
 }
 .sideScrollBox01 .sideScrollContainer01 #skills .skillsBox {
@@ -886,7 +883,7 @@
 }
 @media (width <= 768px) {
   .sideScrollBox01 .sideScrollContainer01 #skills .skillsBox .skillsText .skills {
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
 }
 .sideScrollBox01 .sideScrollContainer01 #skills .skillsBox .skillsText .skills img {
