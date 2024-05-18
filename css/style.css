@@ -205,9 +205,15 @@ header .hamburger-menu {
   header .hamburger-menu {
     display: block;
   }
+  header .hamburger-menu .headerTitle {
+    position: fixed;
+    top: 1rem;
+    left: 3%;
+    font-size: 1.5rem;
+  }
   header .hamburger-menu .menu-btn {
     position: fixed;
-    top: 10px;
+    top: 1rem;
     right: 0%;
     display: flex;
     height: 60px;
