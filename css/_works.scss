@@ -1,0 +1,117 @@
+#works {
+    position: relative;
+    overflow-x: scroll;
+    // overflow: hidden;
+
+    img {
+
+        @media (width <=780px) {
+            max-width: 200px;
+        }
+    }
+
+    .sideScrollContainer02 {
+        display: flex;
+        width: 400%;
+        height: 100%;
+
+        
+        .worksBar{
+            
+            .moreRight{
+                position: absolute;
+                top: 70%;
+                left: 70%;
+                transform: translate(-50%, -50%);
+
+                @media (width <=780px) {
+                    left: 50%;
+                }
+
+                a{
+                    color: white;
+                    transition: 0.5s;
+                }
+                a:hover{
+                    color: black;
+                    transition: 0.5s;
+                }
+            }
+
+            .moreleft{
+                position: absolute;
+                top: 70%;
+                left: 30%;
+                transform: translate(-50%, -50%);
+
+                @media (width <=780px) {
+                    top: 60%;
+                    left: 50%;
+                }
+
+                a{
+                    color: white;
+                    transition: 0.5s;
+                }
+                a:hover{
+                    color: black;
+                    transition: 0.5s;
+                }
+            }
+        }
+
+        #works01,
+        #works02,
+        #works03,
+        #works04 {
+            width: 100%;
+            position: relative;
+        }
+
+        .worksBox01 {
+            position: absolute;
+            top: 40%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            @media (width <=780px) {
+                top: 45%;
+                flex-direction: column;
+            }
+
+            .worksBox0101 {
+
+                div {
+                    margin: 1rem 0.5rem;
+                }
+            }
+        }
+
+        .worksBox02 {
+            position: absolute;
+            top: 40%;
+            left: 35%;
+            transform: translate(-50%, -50%);
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            @media (width <=780px) {
+                top: 45%;
+                flex-direction: column;
+            }
+
+            .worksBox0101 {
+
+                div {
+                    margin: 1rem 0.5rem;
+                }
+            }
+        }
+    }
+}

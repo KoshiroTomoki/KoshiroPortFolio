@@ -1,0 +1,58 @@
+#top {
+    position: relative;
+
+    .topTitle {
+        position: absolute;
+        top: 75%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+
+        @media (width <=780px) {
+            top: 60%;
+        }
+
+        p {
+            font-size: 2rem;
+            max-width: 1000px;
+
+            @media (width <=780px) {
+                font-size: 1rem;
+            }
+        }
+
+        h1 {
+            font-size: 5rem;
+
+            @media (width <=780px) {
+                font-size: 3rem;
+            }
+
+            @media (width <=500px) {
+                font-size: 2.2rem;
+            }
+        }
+    }
+
+    .topBar {
+
+        .nameBox {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .name01 {
+                font-size: 6rem;
+                writing-mode: vertical-lr;
+                margin-top: 2rem;
+
+                @media (width <=780px) {
+                    font-size: 4rem;
+                    margin-top: 0rem;
+                }
+            }
+        }
+    }
+}

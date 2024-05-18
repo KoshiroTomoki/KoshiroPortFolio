@@ -1,0 +1,224 @@
+header {
+    width: 100%;
+
+    .headerBox {
+        position: fixed;
+        padding-top: 2rem;
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        z-index: 10;
+
+        @media (width <=780px) {
+            display: none;
+        }
+
+        .headerTitle {
+            width: 65%;
+            margin-left: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .headerNav {
+            width: 30%;
+            max-width: 400px;
+
+            nav {
+
+                ul {
+                    display: block;
+                    text-align: right;
+
+                    li {
+                        margin-right: 1.5rem;
+                        color: white;
+
+                        a {
+                            color: white;
+                            text-decoration: none;
+                            transition: 0.3s;
+
+                            animation: scrollColorChange 1s linear paused;
+                            animation-timeline: scrollColorChangeTimeline;
+                        }
+
+                        a:hover {
+                            color: #383838;
+                            transition: 0.3s;
+                            border-bottom: #383838 1px solid;
+                        }
+                    }
+
+                    .on,
+                    .off{
+                        transition: 0.3s;
+                    }
+
+                    .on:hover,
+                    .off:hover{
+                        transition: 0.3s;
+                        color: #383838;
+                    }
+
+                    .action{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .hamburger-menu {
+        display: none;
+
+        @media (width <=780px) {
+            display: block;
+
+            .menu-btn {
+                position: fixed;
+                top: 10px;
+                right: 0%;
+                display: flex;
+                height: 60px;
+                width: 60px;
+                justify-content: center;
+                align-items: center;
+                z-index: 90;
+
+                span,
+                span:before,
+                span:after {
+                    content: '';
+                    display: block;
+                    height: 5px;
+                    width: 30vw;
+                    border-radius: 3px;
+                    background-color: rgb(255, 255, 255);
+                    position: absolute;
+                    transition: 0.3s;
+                }
+
+                span:before {
+                    bottom: 20px;
+                    left: 1rem;
+                }
+
+                span:after {
+                    top: 20px;
+                    right: 1rem;
+                }
+            }
+
+            #menu-btn-check {
+                display: none;
+            }
+
+            #menu-btn-check:checked~.menu-btn span {
+                background-color: rgba(255, 255, 255, 0);
+                transition: 0.3s;
+            }
+
+            #menu-btn-check:checked~.menu-btn span::before {
+                bottom: 0;
+                transform: rotate(45deg);
+                transition: 0.3s;
+                background-color: white;
+                right: 0rem;
+                left: 0rem;
+            }
+
+            #menu-btn-check:checked~.menu-btn span::after {
+                top: 0;
+                transform: rotate(-45deg);
+                transition: 0.3s;
+                background-color: white;
+
+                right: 0rem;
+            }
+
+            #menu-btn-check:checked~.menu-content {
+                left: 65%;
+            }
+
+            .menu-content {
+                width: 35%;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: 100%;
+                z-index: 80;
+                transition: all 0.5s;
+                background-color: #383838;
+                min-width: 100px;
+
+                ul {
+                    padding: 5rem 1rem 0 0.5rem;
+
+                    li {
+                        border-bottom: solid 2px #ffffff;
+                        list-style: none;
+                        padding: 2rem 0 0.1rem;
+                        color: white;
+
+                        a {
+                            display: block;
+                            width: 100%;
+                            font-size: 1rem;
+                            box-sizing: border-box;
+                            color: #ffffff;
+                            text-decoration: none;
+                            padding: 9px 15px 10px 0;
+                            position: relative;
+                        }
+
+                        a::before {
+                            content: "";
+                            width: 7px;
+                            height: 7px;
+                            border-top: solid 3px #ffffff;
+                            border-right: solid 3px #ffffff;
+                            transform: rotate(45deg);
+                            position: absolute;
+                            right: -0.5rem;
+                            top: 1.1rem;
+                        }
+
+                        a:hover {
+                            transition: 0.5s;
+                        }
+                    }
+
+                    .on,
+                    .off{
+                        transition: 0.3s;
+                    }
+
+                    .on:hover,
+                    .off:hover{
+                        transition: 0.3s;
+                        color: #ffffff;
+                    }
+
+                    .action{
+                        display: none;
+                    }
+                }
+
+                .headerContact02 {
+
+                    p {
+                        display: flex;
+                        margin-top: 0.5rem;
+                    }
+
+                    p:nth-child(1) {
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

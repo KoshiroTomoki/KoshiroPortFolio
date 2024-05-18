@@ -1,0 +1,697 @@
+@charset "UTF-8";
+*, foundline *::before,
+*::after {
+  margin: 0;
+  /* マージンは0に */
+  padding: 0;
+  /* パディングも常に0に */
+  box-sizing: border-box;
+  /* もちろん、より直感的なbox-sizingに設定 */
+}
+
+:where([hidden]:not([hidden=until-found])) {
+  display: none !important;
+  /* hiddenは非表示を意味します */
+}
+
+:where(html) {
+  -webkit-text-size-adjust: none;
+  /* iOSのランドスケープでテキストが調整されないようにする */
+}
+
+@supports not (min-block-size: 100dvb) {
+  :where(html) {
+    block-size: 100%;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  :where(html:focus-within) {
+    scroll-behavior: smooth;
+    /* 何かにフォーカスがある場合のみスムーズスクロール */
+  }
+}
+:where(body) {
+  block-size: 100%;
+  /* サファリ以外のブラウザのフォールバック */
+  block-size: 100dvb;
+  /* 1dvbは動的ビューポートの長さの1%、100dvbで高さいっぱいに */
+  line-height: 1.7;
+  /* アクセシブルな行の高さ */
+  font-family: system-ui, sans-serif;
+  /* timeの代わりにシステムフォントを使用 */
+  -webkit-font-smoothing: antialiased;
+  /* テキストのレンダリングを改善 */
+}
+
+:where(input, button, textarea, select) {
+  font: inherit;
+  /* フォーム コントロールは親フォントを継承 */
+  color: inherit;
+  /* カラーも継承 */
+}
+
+:where(textarea) {
+  resize: vertical;
+  /* テキストエリアの水平リサイズを無効に */
+  resize: block;
+}
+
+:where(button, label, select, summary, [role=button], [role=option]) {
+  cursor: pointer;
+  /* インタラクティブなものにカーソルを合わせる */
+}
+
+:where(:disabled) {
+  cursor: not-allowed;
+  /* フォームコントロール無効時のカーソルを許可しない */
+}
+
+:where(label:has(> input:disabled), label:has(+ input:disabled)) {
+  cursor: not-allowed;
+  /* ラベルにもカーソルを許可しない */
+}
+
+:where(button) {
+  border-style: solid;
+  /* ボタンのボーダーのスタイルを設定しやすくする */
+}
+
+:where(a) {
+  text-underline-offset: 0.2ex;
+  /* 下線の上にスペースを追加する */
+}
+
+:where(ul, ol) {
+  list-style: none;
+  /* ビュレットを削除、必要に応じて手動で追加する */
+}
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
+  /* 置換された要素をより予測可能にする */
+}
+
+:where(img, picture, svg) {
+  max-inline-size: 100%;
+  /* images should never overflow past the available space */
+  block-size: auto;
+  /* アスペクト比を保持 */
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+  overflow-wrap: break-word;
+  /* 長い単語は改行 */
+}
+
+:where(h1, h2, h3) {
+  line-height: calc(1em + 0.5rem);
+  /* 見出しの行の高さを減らす */
+}
+
+:where(hr) {
+  /* より一貫性のある、スタイリッシュなhr */
+  border: none;
+  border-block-start: 1px solid;
+  color: inherit;
+  block-size: 0;
+  overflow: visible;
+}
+
+:where(:focus-visible) {
+  /* より一貫性のある、カスタマイズ可能なフォーカスのアウトライン */
+  outline: 2px solid var(--focus-color, Highlight);
+  outline-offset: 2px;
+}
+
+/* .visually-hiddenは後のカスケードレイヤーを上書きするために!importantを使用 */
+:where(.visually-hidden:not(:focus, :active, :focus-within, .not-visually-hidden)) {
+  -webkit-clip-path: inset(50%) !important;
+          clip-path: inset(50%) !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  width: 100%;
+}
+header .headerBox {
+  position: fixed;
+  padding-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+@media (width <= 780px) {
+  header .headerBox {
+    display: none;
+  }
+}
+header .headerBox .headerTitle {
+  width: 65%;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+header .headerBox .headerNav {
+  width: 30%;
+  max-width: 400px;
+}
+header .headerBox .headerNav nav ul {
+  display: block;
+  text-align: right;
+}
+header .headerBox .headerNav nav ul li {
+  margin-right: 1.5rem;
+  color: white;
+}
+header .headerBox .headerNav nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  animation: scrollColorChange 1s linear paused;
+  animation-timeline: scrollColorChangeTimeline;
+}
+header .headerBox .headerNav nav ul li a:hover {
+  color: #383838;
+  transition: 0.3s;
+  border-bottom: #383838 1px solid;
+}
+header .headerBox .headerNav nav ul .on,
+header .headerBox .headerNav nav ul .off {
+  transition: 0.3s;
+}
+header .headerBox .headerNav nav ul .on:hover,
+header .headerBox .headerNav nav ul .off:hover {
+  transition: 0.3s;
+  color: #383838;
+}
+header .headerBox .headerNav nav ul .action {
+  display: none;
+}
+header .hamburger-menu {
+  display: none;
+}
+@media (width <= 780px) {
+  header .hamburger-menu {
+    display: block;
+  }
+  header .hamburger-menu .menu-btn {
+    position: fixed;
+    top: 10px;
+    right: 0%;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+  }
+  header .hamburger-menu .menu-btn span,
+  header .hamburger-menu .menu-btn span:before,
+  header .hamburger-menu .menu-btn span:after {
+    content: "";
+    display: block;
+    height: 5px;
+    width: 30vw;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transition: 0.3s;
+  }
+  header .hamburger-menu .menu-btn span:before {
+    bottom: 20px;
+    left: 1rem;
+  }
+  header .hamburger-menu .menu-btn span:after {
+    top: 20px;
+    right: 1rem;
+  }
+  header .hamburger-menu #menu-btn-check {
+    display: none;
+  }
+  header .hamburger-menu #menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);
+    transition: 0.3s;
+  }
+  header .hamburger-menu #menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+    transition: 0.3s;
+    background-color: white;
+    right: 0rem;
+    left: 0rem;
+  }
+  header .hamburger-menu #menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+    transition: 0.3s;
+    background-color: white;
+    right: 0rem;
+  }
+  header .hamburger-menu #menu-btn-check:checked ~ .menu-content {
+    left: 65%;
+  }
+  header .hamburger-menu .menu-content {
+    width: 35%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 80;
+    transition: all 0.5s;
+    background-color: #383838;
+    min-width: 100px;
+  }
+  header .hamburger-menu .menu-content ul {
+    padding: 5rem 1rem 0 0.5rem;
+  }
+  header .hamburger-menu .menu-content ul li {
+    border-bottom: solid 2px #ffffff;
+    list-style: none;
+    padding: 2rem 0 0.1rem;
+    color: white;
+  }
+  header .hamburger-menu .menu-content ul li a {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 9px 15px 10px 0;
+    position: relative;
+  }
+  header .hamburger-menu .menu-content ul li a::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-top: solid 3px #ffffff;
+    border-right: solid 3px #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -0.5rem;
+    top: 1.1rem;
+  }
+  header .hamburger-menu .menu-content ul li a:hover {
+    transition: 0.5s;
+  }
+  header .hamburger-menu .menu-content ul .on,
+  header .hamburger-menu .menu-content ul .off {
+    transition: 0.3s;
+  }
+  header .hamburger-menu .menu-content ul .on:hover,
+  header .hamburger-menu .menu-content ul .off:hover {
+    transition: 0.3s;
+    color: #ffffff;
+  }
+  header .hamburger-menu .menu-content ul .action {
+    display: none;
+  }
+  header .hamburger-menu .menu-content .headerContact02 p {
+    display: flex;
+    margin-top: 0.5rem;
+  }
+  header .hamburger-menu .menu-content .headerContact02 p:nth-child(1) {
+    margin-top: 1rem;
+  }
+}
+
+#top {
+  position: relative;
+}
+#top .topTitle {
+  position: absolute;
+  top: 75%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+@media (width <= 780px) {
+  #top .topTitle {
+    top: 60%;
+  }
+}
+#top .topTitle p {
+  font-size: 2rem;
+  max-width: 1000px;
+}
+@media (width <= 780px) {
+  #top .topTitle p {
+    font-size: 1rem;
+  }
+}
+#top .topTitle h1 {
+  font-size: 5rem;
+}
+@media (width <= 780px) {
+  #top .topTitle h1 {
+    font-size: 3rem;
+  }
+}
+@media (width <= 500px) {
+  #top .topTitle h1 {
+    font-size: 2.2rem;
+  }
+}
+#top .topBar .nameBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#top .topBar .nameBox .name01 {
+  font-size: 6rem;
+  writing-mode: vertical-lr;
+  margin-top: 2rem;
+}
+@media (width <= 780px) {
+  #top .topBar .nameBox .name01 {
+    font-size: 4rem;
+    margin-top: 0rem;
+  }
+}
+
+#service {
+  transition: 0.5s;
+  overflow-x: scroll;
+}
+#service .sideScrollContainer01 {
+  display: flex;
+  width: 400%;
+  height: 100%;
+}
+#service .sideScrollContainer01 #service01 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#service .sideScrollContainer01 #service01 .serviceBox {
+  width: 100%;
+  max-width: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+}
+@media (width <= 780px) {
+  #service .sideScrollContainer01 #service01 .serviceBox {
+    top: 48%;
+  }
+}
+#service .sideScrollContainer01 #service01 .serviceBox h3 {
+  margin-bottom: 1rem;
+}
+#service .sideScrollContainer01 #service01 .serviceBox .serviceBox01 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+#service .sideScrollContainer01 #service01 .serviceBox .serviceBox02 {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (width <= 780px) {
+  #service .sideScrollContainer01 #service01 .serviceBox .serviceBox02 {
+    flex-direction: column;
+  }
+}
+#service .sideScrollContainer01 #service01 .serviceBox .serviceBox02 div {
+  text-align: center;
+}
+#service .sideScrollContainer01 #service01 .serviceBox .serviceBox02 div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+#service .sideScrollContainer01 #service02 {
+  width: 100%;
+}
+#service .sideScrollContainer01 #service03 {
+  width: 100%;
+}
+#service .sideScrollContainer01 #service04 {
+  width: 100%;
+}
+
+#works {
+  position: relative;
+  overflow-x: scroll;
+}
+@media (width <= 780px) {
+  #works img {
+    max-width: 200px;
+  }
+}
+#works .sideScrollContainer02 {
+  display: flex;
+  width: 400%;
+  height: 100%;
+}
+#works .sideScrollContainer02 .worksBar .moreRight {
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+@media (width <= 780px) {
+  #works .sideScrollContainer02 .worksBar .moreRight {
+    left: 50%;
+  }
+}
+#works .sideScrollContainer02 .worksBar .moreRight a {
+  color: white;
+  transition: 0.5s;
+}
+#works .sideScrollContainer02 .worksBar .moreRight a:hover {
+  color: black;
+  transition: 0.5s;
+}
+#works .sideScrollContainer02 .worksBar .moreleft {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+@media (width <= 780px) {
+  #works .sideScrollContainer02 .worksBar .moreleft {
+    top: 60%;
+    left: 50%;
+  }
+}
+#works .sideScrollContainer02 .worksBar .moreleft a {
+  color: white;
+  transition: 0.5s;
+}
+#works .sideScrollContainer02 .worksBar .moreleft a:hover {
+  color: black;
+  transition: 0.5s;
+}
+#works .sideScrollContainer02 #works01,
+#works .sideScrollContainer02 #works02,
+#works .sideScrollContainer02 #works03,
+#works .sideScrollContainer02 #works04 {
+  width: 100%;
+  position: relative;
+}
+#works .sideScrollContainer02 .worksBox01 {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (width <= 780px) {
+  #works .sideScrollContainer02 .worksBox01 {
+    top: 45%;
+    flex-direction: column;
+  }
+}
+#works .sideScrollContainer02 .worksBox01 .worksBox0101 div {
+  margin: 1rem 0.5rem;
+}
+#works .sideScrollContainer02 .worksBox02 {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (width <= 780px) {
+  #works .sideScrollContainer02 .worksBox02 {
+    top: 45%;
+    flex-direction: column;
+  }
+}
+#works .sideScrollContainer02 .worksBox02 .worksBox0101 div {
+  margin: 1rem 0.5rem;
+}
+
+#contact {
+  position: relative;
+}
+
+html {
+  background-color: #F9F7F4;
+}
+html body main {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+}
+html body main section {
+  scroll-snap-align: start;
+  width: 100%;
+  height: 100vh;
+  border-bottom: 3px solid black;
+}
+html body main section .title {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+@media (width <= 780px) {
+  html body main section .title {
+    margin-bottom: 2rem;
+  }
+}
+html body main section .title h2 {
+  font-size: 3rem;
+}
+@media (width <= 780px) {
+  html body main section .title h2 {
+    font-size: 2rem;
+  }
+}
+html body main section .scrollBottonTop {
+  position: absolute;
+  top: 95%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+  line-height: 1rem;
+}
+@media (width <= 780px) {
+  html body main section .scrollBottonTop {
+    top: 80%;
+  }
+}
+html body main section .scrollBottonBottom {
+  position: absolute;
+  top: 95%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+  line-height: 1rem;
+}
+@media (width <= 780px) {
+  html body main section .scrollBottonBottom {
+    top: 80%;
+  }
+}
+html body main section .scrollBottonTop01 {
+  position: absolute;
+  top: 95%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+  line-height: 1rem;
+}
+@media (width <= 780px) {
+  html body main section .scrollBottonTop01 {
+    top: 80%;
+  }
+}
+html body main section .scrollBottonBottom01 {
+  position: absolute;
+  top: 95%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+  line-height: 1rem;
+}
+@media (width <= 780px) {
+  html body main section .scrollBottonBottom01 {
+    top: 80%;
+  }
+}
+html body main section a:hover {
+  transition: 0.5s;
+  color: #C9BC9C;
+}
+html body .rightBar {
+  position: absolute;
+  right: 0%;
+  width: 30%;
+  max-width: 400px;
+  min-width: 110px;
+  height: 100%;
+  background-color: #C9BC9C;
+  color: white;
+}
+html body .rightBar .rightBarText {
+  width: 100%;
+  max-width: 350px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 0.5rem;
+}
+html body .rightBar .rightBarText h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+@media (width <= 780px) {
+  html body .rightBar .rightBarText h3 {
+    font-size: 1.2rem;
+  }
+}
+@media (width <= 500px) {
+  html body .rightBar .rightBarText h3 {
+    font-size: 1rem;
+  }
+}
+html body .rightBar .rightBarText p {
+  font-size: 1rem;
+}
+@media (width <= 500px) {
+  html body .rightBar .rightBarText p {
+    font-size: 0.8rem;
+  }
+}
+@media (width <= 780px) {
+  html body .pc {
+    display: none;
+  }
+}
+html body .mob {
+  display: none;
+}
+@media (width <= 780px) {
+  html body .mob {
+    display: block;
+  }
+}/*# sourceMappingURL=style.css.map */

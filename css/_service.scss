@@ -1,0 +1,79 @@
+#service {
+    transition: 0.5s;
+    overflow-x: scroll;
+    // overflow: hidden;
+
+    .sideScrollContainer01 {
+        display: flex;
+        width: 400%;
+        height: 100%;
+
+        #service01 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            .serviceBox {
+                width: 100%;
+                max-width: 1000px;
+                position: absolute;
+                top: 50%;
+                left: 35%;
+                transform: translate(-50%, -50%);
+
+                @media (width <=780px) {
+                    top: 48%;
+                }
+
+                h3 {
+                    margin-bottom: 1rem;
+                }
+
+                .serviceBox01 {
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-bottom: 3rem;
+                }
+
+                .serviceBox02 {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                    @media (width <=780px) {
+                        flex-direction: column;
+                    }
+
+                    div {
+                        text-align: center;
+
+
+                        a{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                            margin-bottom: 3rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        #service02 {
+            width: 100%;
+        }
+
+        #service03 {
+            width: 100%;
+        }
+
+        #service04 {
+            width: 100%;
+        }
+    }
+}
